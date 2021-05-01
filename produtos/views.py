@@ -1,10 +1,21 @@
-from django.http import JsonResponse
+from rest_framework import viewsets
+from produtos.models import Product, ProductBarcode, ProductAttribute
+from produtos.serializer import ProductSerializer, ProductBarcodeSerializer, ProductAttributeSerializer
 
-# Create your views here.
-def produtos(request):
-    if request.method == 'GET':
-        p = {
-            'id': 1,
-            'nome': 'Lucas'
-        }
-        return JsonResponse(p)
+
+class ProductViewSet(viewsets.ModelViewSet):
+    """"Exibindo todos os produtos"""
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductBarcodeViewSet(viewsets.ModelViewSet):
+    """"Exibindo todos os codigos de barra"""
+    queryset = ProductBarcode.objects.all()
+    serializer_class = ProductBarcodeSerializer
+
+
+class ProductAttributeViewSet(viewsets.ModelViewSet):
+    """"Exibindo todos os atributos"""
+    queryset = ProductAttribute.objects.all()
+    serializer_class = ProductAttributeSerializer
