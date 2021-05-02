@@ -11,7 +11,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['title', 'product_id']
-    search_fields = ['sku']
+    search_fields = ['sku', 'title']
 
 
 class ProductBarcodeViewSet(viewsets.ModelViewSet):
@@ -32,3 +32,6 @@ class ProductAttributeViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['name', 'product_id']
     search_fields = ['name']
+
+
+
