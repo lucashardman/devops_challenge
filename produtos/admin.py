@@ -8,6 +8,7 @@ class Produtos(admin.ModelAdmin):
     list_display_links = ('title', 'sku')
     search_fields = ('title',)
     list_per_page = 20
+    ordering = ('title',)
 
 
 class CodigoDeBarra(admin.ModelAdmin):
