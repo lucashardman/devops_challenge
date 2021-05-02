@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from produtos.models import Product, ProductBarcode, ProductAttribute
 from produtos.serializer import ProductSerializer, ProductBarcodeSerializer, ProductAttributeSerializer
 
@@ -19,3 +19,8 @@ class ProductAttributeViewSet(viewsets.ModelViewSet):
     """"Exibindo todos os atributos"""
     queryset = ProductAttribute.objects.all()
     serializer_class = ProductAttributeSerializer
+
+
+
+
+

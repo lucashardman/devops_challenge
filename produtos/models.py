@@ -6,7 +6,7 @@ from django.db import models
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=32, null=False)
-    sku = models.CharField(max_length=32, null=False)
+    sku = models.CharField(max_length=32, null=False, unique=True)
     description = models.CharField(max_length=1024)
     price = models.FloatField(null=False)
     created = models.DateTimeField(default=datetime.now, blank=True, null=False)
@@ -20,6 +20,9 @@ class ProductBarcode(models.Model):
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
     barcode = models.CharField(max_length=32, null=False, unique=True)
 
+    class Meta:
+        unique_together = ['product_id', 'barcode']
+
     def __str__(self):
         return self.barcode
 
@@ -29,5 +32,10 @@ class ProductAttribute(models.Model):
     name = models.CharField(max_length=16, null=False)
     value = models.CharField(max_length=32, null=False)
 
+    class Meta:
+        unique_together = ['product_id', 'name']
+
     def __str__(self):
         return self.name
+
+

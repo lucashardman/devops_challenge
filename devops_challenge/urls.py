@@ -6,12 +6,12 @@ from rest_framework import routers
 
 
 router = routers.DefaultRouter()
-router.register('produtos', ProductViewSet, basename='Produtos')
-router.register('codigosdebarra', ProductBarcodeViewSet, basename='Codigos')
-router.register('atributos', ProductAttributeViewSet, basename='Atributos')
+router.register('products', ProductViewSet, basename='Produtos')
+router.register('barcodes', ProductBarcodeViewSet, basename='Codigos')
+router.register('attributes', ProductAttributeViewSet, basename='Atributos')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls))
+    path('api/', include(router.urls))
 ]

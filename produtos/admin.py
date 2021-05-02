@@ -11,16 +11,16 @@ class Produtos(admin.ModelAdmin):
 
 
 class CodigoDeBarra(admin.ModelAdmin):
-    list_display = ('product_id', 'barcode')
-    list_display_links = ('product_id', 'barcode')
-    search_fields = ('product_id',)
+    list_display = ('barcode',)
+    list_display_links = ('barcode',)
+    search_fields = ('barcode',)
     list_per_page = 20
 
 
 class Atributos(admin.ModelAdmin):
-    list_display = ('product_id', 'name', 'value')
-    list_display_links = ('product_id', 'name')
-    search_fields = ('product_id',)
+    list_display = ('name', 'value')
+    list_display_links = ('name',)
+    search_fields = ('name',)
     list_per_page = 20
 
 
