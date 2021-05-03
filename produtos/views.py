@@ -14,6 +14,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['title', 'product_id']
     search_fields = ['sku', 'title']
+
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated]
 
@@ -27,6 +28,8 @@ class ProductBarcodeViewSet(viewsets.ModelViewSet):
     ordering_fields = ['barcode', 'product_id']
     search_fields = ['barcode']
 
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 class ProductAttributeViewSet(viewsets.ModelViewSet):
     """"Exibindo todos os atributos"""
@@ -36,6 +39,9 @@ class ProductAttributeViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['name', 'product_id']
     search_fields = ['name']
+
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 
