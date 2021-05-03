@@ -1,1 +1,1 @@
-web:gunicorn devops_challenge.wsgi
+web: gunicorn devops_challenge.wsgi
