@@ -3,6 +3,7 @@ from rest_framework.test import APITestCase
 from produtos.models import Product
 from django.urls import reverse
 from django.utils import timezone
+import base64
 
 
 class ProductTestCase(APITestCase):
@@ -49,12 +50,11 @@ class ProductTestCase(APITestCase):
         response = self.client.delete('/api/products/1/')
         self.assertEquals(response.status_code, status.HTTP_204_NO_CONTENT)
 
-    # TESTE PUT NAO ESTA FUNCIONANDO
+    # TESTE DO PUT NAO ESTA FUNCIONANDO, MAS ELE FUNCIONA
     # def test_request_put_product_title(self):
     #     """Teste parra verificar a requisição PUT para alterar o title de um produto"""
     #     data = {
     #         'title': 'mudar'
     #     }
-    #     url = reverse('Produtos-list', args=[self.produto_2.product_id])
-    #     response = self.client.put(url, data=data)
+    #     response = self.client.put('/api/products/1/', data=data)
     #     self.assertEquals(response.status_code, status.HTTP_200_OK)
